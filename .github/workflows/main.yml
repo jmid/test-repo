@@ -22,5 +22,6 @@ jobs:
     - uses: ocaml/setup-ocaml@v3
       with:
         ocaml-compiler: ${{ matrix.ocaml-compiler }}
+    - run: opam install -y dune
     - run: opam exec -- dune build
     - run: opam exec -- dune exec src/hello.exe
