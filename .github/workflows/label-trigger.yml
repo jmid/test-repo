@@ -16,4 +16,5 @@ jobs:
         commit: ["merge_branch", "base_branch"]
     steps:
       - name: echo
+      - uses: actions/checkout@v4
       - run: echo "Label workflow ran!"
