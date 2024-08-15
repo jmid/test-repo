@@ -15,6 +15,7 @@ jobs:
       matrix:
         commit: ["merge_branch", "base_branch"]
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
       - name: echo
-      - uses: actions/checkout@v4
-      - run: echo "Label workflow ran!"
+        run: echo "Label workflow ran!"
