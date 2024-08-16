@@ -1,0 +1,21 @@
+name: My label workflow
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  run:
+    name: 'Run an action'
+    runs-on: ubuntu-22.04
+    if: >
+      github.event.action == 'labeled' &&
+      github.event.label.name == 'test-label'
+    strategy:
+      matrix:
+        commit: ["merge_branch", "base_branch"]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: echo
+        run: echo "Label workflow ran!"
