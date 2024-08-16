@@ -6,9 +6,10 @@ on:
 
 jobs:
   run:
-    name: ${{ (github.event.action == 'labeled' &&
-               github.event.label.name == 'test-label' &&
-               'Run an action') || 'NOT ENABLED - Run an action' }}
+    name: ${{ format('{0}Run an action',
+                     (github.event.action == 'labeled' &&
+                      github.event.label.name == 'test-label' && '') ||
+                      'NOT ENABLED - ' }}
     runs-on: ubuntu-22.04
     if: >
       github.event.action == 'labeled' &&
