@@ -9,7 +9,7 @@ jobs:
     name: ${{ format('{0}Run an action',
                      (github.event.action == 'labeled' &&
                       github.event.label.name == 'test-label' && '') ||
-                      'NOT ENABLED - ' }}
+                      'NOT ENABLED - ') }}
     runs-on: ubuntu-22.04
     if: >
       github.event.action == 'labeled' &&
